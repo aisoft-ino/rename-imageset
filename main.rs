@@ -7,8 +7,8 @@ fn rename_directory_images_json(
     new_name: &str,
 ) -> io::Result<()> {
     // rename current folder from the full path to new_name.imageset
-    // ex: /Users/iostafi/Developer/Crunchyroll/cr-ios-app/Crunchyroll/Resources/AppAssets.xcassets/play-shortcut.imageset ->
-    //    /Users/iostafi/Developer/Crunchyroll/cr-ios-app/Crunchyroll/Resources/AppAssets.xcassets/play-circle-35.imageset
+    // ex: Resources/AppAssets.xcassets/play-shortcut.imageset ->
+    //    Resources/AppAssets.xcassets/play-circle-35.imageset
     let mut new_directory_full_path = String::from(directory_full_path);
     // remove the last part of the path
     new_directory_full_path = new_directory_full_path.rsplitn(2, "/").collect::<Vec<&str>>()[1].to_string();
@@ -69,7 +69,7 @@ fn rename_directory_images_json(
 
 fn main() {
     let args: Vec<String> = std::env::args().collect();
-    // the directory full path, ex: /Users/iostafi/Developer/Crunchyroll/cr-ios-app/Crunchyroll/Resources/AppAssets.xcassets/play-shortcut.imageset
+    // the directory full path, ex: /Users/username/Developer/ios_app/src/Resources/AppAssets.xcassets/play-shortcut.imageset
     let directory_full_path = &args[1];
     // the new name, ex: play-circle-35
     let new_name = &args[2];
